@@ -5,8 +5,8 @@ void main() {
     printBoard(game);
     //System.out.println(game.board[6][2].charPiece());
     Piece prova = game.board[6][2];
-//    rookTest(game);
-    bishopTest(game);
+    rookTest(game);
+    //bishopTest(game);
 
 }
 
@@ -48,7 +48,21 @@ void rookTest(Game game) {
     printBoard(game);
     System.out.println(game.move(game.board[4][3],1,3));
     printBoard(game);
-    System.out.println(game.move(game.board[1][3],1,4));
+    System.out.println(game.move(game.board[1][3],0,3));
+    printBoard(game);
+    System.out.println(game.move(game.board[0][3],0,2));
+    printBoard(game);
+    System.out.println(game.move(game.board[0][2],1,2));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][2],1,3));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][3],1,2));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][2],1,1));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][1],1,0));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][0],3,0));
     printBoard(game);
 //    System.out.println(game.move(game.board[3][0],3,0));
 //    printBoard(game);

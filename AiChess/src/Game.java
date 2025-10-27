@@ -75,7 +75,7 @@ public class Game {
                     }else if(col != piece.column){
                         //edit column
                         int firstCol = piece.column;
-                        if(row>piece.column){
+                        if(col>piece.column){
                             //right rook
                             for (int i = piece.column+1; i <= col; i++) {
                                 piece.column = i;
