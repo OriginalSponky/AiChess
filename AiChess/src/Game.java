@@ -179,6 +179,9 @@ public class Game {
     private boolean isTileOccupied(int row, int col){
         return board[row][col] != null;
     }
+
+    
+
     private boolean isTargetAvailable(Piece piece, Piece target, int row, int col){
         if(board[row][col]==target){
             //se non e' il mio alleato lo mangio
