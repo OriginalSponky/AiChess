@@ -1,7 +1,9 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    Game game = new Game(true);
+    Player player1 = new Player("test1");
+    Player player2 = new Player("test2");
+    Game game = new Game(true, player1, player2);
     printBoard(game);
     //System.out.println(game.board[6][2].charPiece());
     Piece prova = game.board[6][2];
@@ -11,59 +13,59 @@ void main() {
 }
 
 
-void bishopTest(Game game) {
+void bishopTest(Game game, Player player) {
 //    //Addosso agli alleati
 //    System.out.println(game.move(game.board[7][2],6, 1));
 //    printBoard(game);
 //    System.out.println(game.move(game.board[7][2],6, 3));
 //    printBoard(game);
     //Sblocco l'alfiere dal pedone
-    System.out.println(game.move(game.board[6][1],4, 1));
+    System.out.println(game.move(game.board[6][1],4, 1, player));
     printBoard(game);
 
     //Muovo l'alfiere
-    System.out.println(game.move(game.board[7][2],6, 1));
+    System.out.println(game.move(game.board[7][2],6, 1, player));
     printBoard(game);
-    System.out.println(game.move(game.board[6][1],1, 6));
+    System.out.println(game.move(game.board[6][1],1, 6, player));
     printBoard(game);
-    System.out.println(game.move(game.board[1][6],0, 5));
+    System.out.println(game.move(game.board[1][6],0, 5, player));
     printBoard(game);
-    System.out.println(game.move(game.board[0][5],1, 6));
+    System.out.println(game.move(game.board[0][5],1, 6, player));
     printBoard(game);
-    System.out.println(game.move(game.board[1][6],0, 7));
+    System.out.println(game.move(game.board[1][6],0, 7, player));
     printBoard(game);
-    System.out.println(game.move(game.board[0][7],1, 6));
+    System.out.println(game.move(game.board[0][7],1, 6, player));
     printBoard(game);
 }
 
 void rookTest(Game game) {
     //testa di mangiare verso destra e verso giu e verso sinitra
-    System.out.println(game.move(game.board[6][0],4,0));
-    printBoard(game);
-    System.out.println(game.move(game.board[4][0],3,0));
-    printBoard(game);
-    System.out.println(game.move(game.board[7][0],4,0));
-    printBoard(game);
-    System.out.println(game.move(game.board[4][0],4,3));
-    printBoard(game);
-    System.out.println(game.move(game.board[4][3],1,3));
-    printBoard(game);
-    System.out.println(game.move(game.board[1][3],0,3));
-    printBoard(game);
-    System.out.println(game.move(game.board[0][3],0,2));
-    printBoard(game);
-    System.out.println(game.move(game.board[0][2],1,2));
-    printBoard(game);
-    System.out.println(game.move(game.board[1][2],1,3));
-    printBoard(game);
-    System.out.println(game.move(game.board[1][3],1,2));
-    printBoard(game);
-    System.out.println(game.move(game.board[1][2],1,1));
-    printBoard(game);
-    System.out.println(game.move(game.board[1][1],1,0));
-    printBoard(game);
-    System.out.println(game.move(game.board[1][0],3,0));
-    printBoard(game);
+//    System.out.println(game.move(game.board[6][0],4,0));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[4][0],3,0));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[7][0],4,0));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[4][0],4,3));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[4][3],1,3));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[1][3],0,3));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[0][3],0,2));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[0][2],1,2));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[1][2],1,3));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[1][3],1,2));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[1][2],1,1));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[1][1],1,0));
+//    printBoard(game);
+//    System.out.println(game.move(game.board[1][0],3,0));
+//    printBoard(game);
 //    System.out.println(game.move(game.board[3][0],3,0));
 //    printBoard(game);
 }

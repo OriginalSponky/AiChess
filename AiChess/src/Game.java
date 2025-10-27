@@ -1,13 +1,15 @@
 public class Game {
     public static Piece[][] board;
-    public boolean player;
-
-    public Game (boolean starter) {// true  => the AI starts first,
-                                   // false => the enemy starts first
-        player = starter;
+    public boolean st;
+    public Player player1;
+    public Player player2;
+    public Game (boolean starter, Player player1, Player player2) {// true  => the AI starts first, false => the enemy starts first
+        st = starter;
+        this.player1 = player1;
+        this.player2 = player2;
         initializeBoard(starter);
     }
-    public boolean move(Piece piece, int row, int col) {
+    public boolean move(Piece piece, int row, int col,Player player) {
         switch (piece.type) {
             case  pawn -> {
                 if (piece.isTheFirstMove()) {
@@ -165,7 +167,9 @@ public class Game {
             case knight -> {}
             case queen -> {}
             case king -> { // ARROCCO da mettere
+                if(!isCheck(player)){
 
+                }
             }
             }
             return false;
@@ -180,7 +184,9 @@ public class Game {
         return board[row][col] != null;
     }
 
-    
+    boolean isCheck(Player player){
+        return false;
+    }
 
     private boolean isTargetAvailable(Piece piece, Piece target, int row, int col){
         if(board[row][col]==target){
@@ -190,6 +196,9 @@ public class Game {
             } else return false;
         } else return false;
     }
+
+
+
     private void initializeBoard(boolean starter) {
         board = new Piece[8][8];
         if(starter) {
