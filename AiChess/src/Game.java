@@ -37,7 +37,6 @@ public class Game {
                 }
             }
             case rook -> {
-                boolean ret = true;
                 if(row == piece.row || col == piece.column){
                     if(row != piece.row){
                         //edit row
@@ -165,7 +164,9 @@ public class Game {
             }
             case knight -> {}
             case queen -> {}
-            case king -> {}
+            case king -> { // ARROCCO da mettere
+
+            }
             }
             return false;
         }//fine move(...)
