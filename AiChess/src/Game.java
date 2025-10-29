@@ -45,7 +45,7 @@ public class Game {
             }
             case rook -> {
                 if(row == piece.row || col == piece.column){
-                    rookMove(piece, row, col, player);
+                    return rookMove(piece, row, col, player);
                 }else return false;
             }
             case bishop -> {
