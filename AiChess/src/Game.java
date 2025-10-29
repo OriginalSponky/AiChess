@@ -54,51 +54,7 @@ public class Game {
 
                 //Controllo se la casella che voglio raggiungere e' vuota e se riesco a raggiungerla seguendo il mio percorso
                 if(Math.abs(row - piece.row) == Math.abs(col - piece.column)){
-                    //Vado verso l'alto
-                    if(row < piece.row){
-                        for (int i = piece.row; i >= row; i--) {
-                            //vado a destra di colonna
-                            if(col < col_control){
-                                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
-                                    movePiece(piece, row, col);
-                                    return true;
-                                }
-                                return false;
-                            }
-                            else if(col_control < col){
-                                if(isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
-                                    movePiece(piece, row, col);
-                                    return true;
-                                }
-                                return false;
-                            }
-                        }
-                    }
-                    //Vado verso il basso
-                    else if(row > piece.row){
-                        for (int i = piece.row; i <= row; i++) {
-                            //control right column
-                            if(col_control > col){
-                                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
-                                    movePiece(piece, row, col);
-                                    return true;
-                                }
-                                return false;
-                            }
-                            else if(col_control < col){
-                                if(isTileOccupied(i, ++col_control)) {
-                                     if(isTargetAvailable(piece, target, row, col) && isTargetAvailable(piece, target, row, col)){
-                                         movePiece(piece, row, col);
-                                         return true;
-                                    }
-                                     return false;
-                                }
-                            }
-                        }
-                    }
-                    //Se non ha dato errori allora posso spostarlo
-                    movePiece(piece, row, col);
-                    return true;
+                    return bishopMove(piece, row, col, col_control, target);
                 }
                 else return false;
             }
@@ -145,7 +101,7 @@ public class Game {
         } else return false;
     }
 
-private boolean rookMove(Piece piece, int row, int col,Player player){
+private boolean rookMove(Piece piece, int row, int col, Player player){
     if(row != piece.row){
         //edit row
         int firstRow = piece.row;
@@ -215,7 +171,53 @@ private boolean rookMove(Piece piece, int row, int col,Player player){
         }
     }else return false;
 }
-
+private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece target){
+    //Vado verso l'alto
+    if(row < piece.row){
+        for (int i = piece.row; i >= row; i--) {
+            //vado a destra di colonna
+            if(col < col_control){
+                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
+                    movePiece(piece, row, col);
+                    return true;
+                }
+                return false;
+            }
+            else if(col_control < col){
+                if(isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
+                    movePiece(piece, row, col);
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
+    //Vado verso il basso
+    else if(row > piece.row){
+        for (int i = piece.row; i <= row; i++) {
+            //control right column
+            if(col_control > col){
+                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
+                    movePiece(piece, row, col);
+                    return true;
+                }
+                return false;
+            }
+            else if(col_control < col){
+                if(isTileOccupied(i, ++col_control)) {
+                    if(isTargetAvailable(piece, target, row, col) && isTargetAvailable(piece, target, row, col)){
+                        movePiece(piece, row, col);
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+    }
+    //Se non ha dato errori allora posso spostarlo
+    movePiece(piece, row, col);
+    return true;
+}
     private void initializeBoard(boolean starter) {
         board = new Piece[8][8];
         if(starter) {

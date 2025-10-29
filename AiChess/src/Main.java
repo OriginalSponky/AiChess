@@ -10,20 +10,6 @@ void main(String[] args) {
     rookTest(game, player1);
     // bishopTest(game, player1);
 }
-
-/**
- * Converte la notazione scacchistica (es. "a1") in coordinate
- * di un array 0-indicizzato [riga, colonna].
- * Questo metodo verrebbe ora usato DENTRO la tua classe Game,
- * nel nuovo metodo move(String fromPos, String toPos, Player player).
- */
-private int[] convertToPosition(String pos) {
-    // Corretto come da nostra discussione precedente
-    int col = pos.charAt(0) - 'a';
-    int row = 8 - Character.getNumericValue(pos.charAt(1));
-    return new int[]{row, col};
-}
-
 void bishopTest(Game game, Player player) {
     // Sblocco l'alfiere dal pedone
     System.out.println(game.move("b2", "b4", player));
