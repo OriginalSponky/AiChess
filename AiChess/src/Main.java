@@ -1,6 +1,6 @@
 // Le tue classi Player, Game, Piece, ecc. andrebbero qui...
 
-void main(String[] args) {
+void main() {
     Player player1 = new Player("test1");
     Player player2 = new Player("test2");
     Game game = new Game(true, player1, player2);
