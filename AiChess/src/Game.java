@@ -9,7 +9,12 @@ public class Game {
         this.player2 = player2;
         initializeBoard(starter);
     }
-    public boolean move(Piece piece, int row, int col,Player player) {
+    public boolean move(String piece_position, String pos,Player player) {
+
+        int[] array = convertToPosition(piece_position);
+        Piece piece =  board[array[0]][array[1]];
+        array = convertToPosition(pos);
+        int row = array[0], col = array[1];
         switch (piece.type) {
             case  pawn -> {
                 if (piece.isTheFirstMove()) {
@@ -107,6 +112,16 @@ public class Game {
             }
             return false;
         }//fine move(...)
+
+    //Il metodo ritorna un array che converte la posizione da stringa
+    //Esempio
+    // Input  : "a1"
+    // Output : new int[]{7, 0} row, col
+    private int[] convertToPosition(String pos){
+        int col = pos.charAt(0) - 'a';
+        int row = 8 - Character.getNumericValue(pos.charAt(1));
+        return new int[]{row, col};
+    }
     private void movePiece(Piece piece, int row, int col){
         board[piece.row][piece.column] = null;
         board[row][col] = piece;
