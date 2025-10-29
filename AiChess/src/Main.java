@@ -7,7 +7,7 @@ void main() {
     printBoard(game);
     //System.out.println(game.board[6][2].charPiece());
     Piece prova = game.board[6][2];
-    rookTest(game);
+    rookTest(game,player1);
     //bishopTest(game);
 
 }
@@ -38,36 +38,36 @@ void bishopTest(Game game, Player player) {
     printBoard(game);
 }
 
-void rookTest(Game game) {
+void rookTest(Game game,Player player) {
     //testa di mangiare verso destra e verso giu e verso sinitra
-//    System.out.println(game.move(game.board[6][0],4,0));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[4][0],3,0));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[7][0],4,0));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[4][0],4,3));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[4][3],1,3));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[1][3],0,3));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[0][3],0,2));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[0][2],1,2));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[1][2],1,3));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[1][3],1,2));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[1][2],1,1));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[1][1],1,0));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[1][0],3,0));
-//    printBoard(game);
-//    System.out.println(game.move(game.board[3][0],3,0));
-//    printBoard(game);
+    System.out.println(game.move(game.board[6][0],4,0,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[4][0],3,0,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[7][0],4,0,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[4][0],4,3,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[4][3],1,3,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][3],0,3,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[0][3],0,2,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[0][2],1,2,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][2],1,3,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][3],1,2,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][2],1,1,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][1],1,0,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[1][0],3,0,player));
+    printBoard(game);
+    System.out.println(game.move(game.board[3][0],3,0,player));
+    printBoard(game);
 }
 
 public void printBoard(Game game) {

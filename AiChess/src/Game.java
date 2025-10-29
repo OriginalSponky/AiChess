@@ -40,74 +40,7 @@ public class Game {
             }
             case rook -> {
                 if(row == piece.row || col == piece.column){
-                    if(row != piece.row){
-                        //edit row
-                        int firstRow = piece.row;
-                        if(row>piece.row){
-                            //edit vertically
-                            for (int i = piece.row+1; i <= row; i++) {
-                                piece.row = i;
-                                if(isTileOccupied(i,piece.column)) {
-                                    if(board[i][piece.column].team==piece.team)
-                                        return false;
-                                    break;
-                                }
-                            }
-                            if(piece.row != row) return false;
-                            board[firstRow][piece.column] = null;
-                            piece.row = row;
-                            board[row][piece.column] = piece;
-                            return true;
-                        }else{
-                            for (int i = piece.row-1; i >= row; i--) {
-                                piece.row = i;
-                                if(isTileOccupied(i,piece.column)) {
-                                    if(board[i][piece.column].team==piece.team)
-                                        return false;
-                                    break;
-                                }
-                            }
-                            if(piece.row != row) return false;
-                            board[firstRow][piece.column] = null;
-                            piece.row = row;
-                            board[row][piece.column] = piece;
-                            return true;
-                        }
-                    }else if(col != piece.column){
-                        //edit column
-                        int firstCol = piece.column;
-                        if(col>piece.column){
-                            //right rook
-                            for (int i = piece.column+1; i <= col; i++) {
-                                piece.column = i;
-                                if(isTileOccupied(piece.row, i)) {
-                                    if(board[piece.row][i].team==piece.team)
-                                        return false;
-                                    break;
-                                }
-                            }
-                            if(piece.column != col) return false;
-                            board[piece.row][firstCol] = null;
-                            piece.column = col;
-                            board[piece.row][piece.column] = piece;
-                            return true;
-                        }else{
-                            //left rook
-                            for (int i = piece.column-1; i >= col; i--) {
-                                piece.column = i;
-                                if(isTileOccupied(piece.row, i)) {
-                                    if(board[piece.row][i].team==piece.team)
-                                        return false;
-                                    break;
-                                }
-                            }
-                            if(piece.column != col) return false;
-                            board[piece.row][firstCol] = null;
-                            piece.column = col;
-                            board[piece.row][piece.column] = piece;
-                            return true;
-                        }
-                    }else return false;
+                    rookMove(piece, row, col, player);
                 }else return false;
             }
             case bishop -> {
@@ -197,7 +130,76 @@ public class Game {
         } else return false;
     }
 
-
+private boolean rookMove(Piece piece, int row, int col,Player player){
+    if(row != piece.row){
+        //edit row
+        int firstRow = piece.row;
+        if(row>piece.row){
+            //edit vertically
+            for (int i = piece.row+1; i <= row; i++) {
+                piece.row = i;
+                if(isTileOccupied(i,piece.column)) {
+                    if(board[i][piece.column].team==piece.team)
+                        return false;
+                    break;
+                }
+            }
+            if(piece.row != row) return false;
+            board[firstRow][piece.column] = null;
+            piece.row = row;
+            board[row][piece.column] = piece;
+            return true;
+        }else{
+            for (int i = piece.row-1; i >= row; i--) {
+                piece.row = i;
+                if(isTileOccupied(i,piece.column)) {
+                    if(board[i][piece.column].team==piece.team)
+                        return false;
+                    break;
+                }
+            }
+            if(piece.row != row) return false;
+            board[firstRow][piece.column] = null;
+            piece.row = row;
+            board[row][piece.column] = piece;
+            return true;
+        }
+    }else if(col != piece.column){
+        //edit column
+        int firstCol = piece.column;
+        if(col>piece.column){
+            //right rook
+            for (int i = piece.column+1; i <= col; i++) {
+                piece.column = i;
+                if(isTileOccupied(piece.row, i)) {
+                    if(board[piece.row][i].team==piece.team)
+                        return false;
+                    break;
+                }
+            }
+            if(piece.column != col) return false;
+            board[piece.row][firstCol] = null;
+            piece.column = col;
+            board[piece.row][piece.column] = piece;
+            return true;
+        }else{
+            //left rook
+            for (int i = piece.column-1; i >= col; i--) {
+                piece.column = i;
+                if(isTileOccupied(piece.row, i)) {
+                    if(board[piece.row][i].team==piece.team)
+                        return false;
+                    break;
+                }
+            }
+            if(piece.column != col) return false;
+            board[piece.row][firstCol] = null;
+            piece.column = col;
+            board[piece.row][piece.column] = piece;
+            return true;
+        }
+    }else return false;
+}
 
     private void initializeBoard(boolean starter) {
         board = new Piece[8][8];
