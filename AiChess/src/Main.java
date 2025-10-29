@@ -1,6 +1,5 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
+
+void main(String[] args) {
     Player player1 = new Player("test1");
     Player player2 = new Player("test2");
     Game game = new Game(true, player1, player2);
@@ -88,3 +87,4 @@ public void printBoard(Game game) {
     //System.out.println(" |A |B |C|D|E |F |G |H");
     System.out.println();
 }
+
