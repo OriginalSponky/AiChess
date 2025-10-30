@@ -100,7 +100,7 @@ public class Game {
     private boolean isTargetAvailable(Piece piece, Piece target, int row, int col){
         if(board[row][col]==target){
             //se non e' il mio alleato lo mangio
-            if(target.team != piece.team){
+            if(target == null ||target.team != piece.team){
                 return true;
             } else return false;
         } else return false;
@@ -193,6 +193,8 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
                     movePiece(piece, row, col);
                     return true;
                 }
+
+                System.out.println("Non funziona");
                 return false;
             }
         }
