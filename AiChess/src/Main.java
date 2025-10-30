@@ -73,9 +73,11 @@ void queenTest(Game game, Player player) {
     printBoard(game);
     System.out.println(game.move("d3", "f3", player)); // Sposta la regina a destra
     printBoard(game);
-    System.out.println(game.move("f3", "f5", player)); // Mossa nulla
+    System.out.println(game.move("f3", "f6", player)); // Mossa nulla
     printBoard(game);
-    System.out.println(game.move("f5", "g6", player)); // Mossa nulla
+    System.out.println(game.move("f6", "g5", player)); // regina in basso a destra
+    printBoard(game);
+    System.out.println(game.move("g5", "f4", player)); // regina in basso a sinistra
     printBoard(game);
 }
 

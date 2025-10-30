@@ -89,8 +89,8 @@ public class Game {
         piece.row = row;
         piece.column = col;
     }
-    private boolean isTileOccupied(int row, int col){
-        return board[row][col] != null;
+    private boolean isTileNotOccupied(int row, int col){
+        return board[row][col] == null;
     }
 
     boolean isCheck(Player player){
@@ -114,7 +114,7 @@ private boolean rookMove(Piece piece, int row, int col, Player player){
             //edit vertically
             for (int i = piece.row+1; i <= row; i++) {
                 piece.row = i;
-                if(isTileOccupied(i,piece.column)) {
+                if(isTileNotOccupied(i,piece.column)) {
                     if(board[i][piece.column].team==piece.team)
                         return false;
                     break;
@@ -128,7 +128,7 @@ private boolean rookMove(Piece piece, int row, int col, Player player){
         }else{
             for (int i = piece.row-1; i >= row; i--) {
                 piece.row = i;
-                if(isTileOccupied(i,piece.column)) {
+                if(isTileNotOccupied(i,piece.column)) {
                     if(board[i][piece.column].team==piece.team)
                         return false;
                     break;
@@ -147,7 +147,7 @@ private boolean rookMove(Piece piece, int row, int col, Player player){
             //right rook
             for (int i = piece.column+1; i <= col; i++) {
                 piece.column = i;
-                if(isTileOccupied(piece.row, i)) {
+                if(isTileNotOccupied(piece.row, i)) {
                     if(board[piece.row][i].team==piece.team)
                         return false;
                     break;
@@ -162,7 +162,7 @@ private boolean rookMove(Piece piece, int row, int col, Player player){
             //left rook
             for (int i = piece.column-1; i >= col; i--) {
                 piece.column = i;
-                if(isTileOccupied(piece.row, i)) {
+                if(isTileNotOccupied(piece.row, i)) {
                     if(board[piece.row][i].team==piece.team)
                         return false;
                     break;
@@ -182,14 +182,15 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
         for (int i = piece.row; i >= row; i--) {
             //vado a destra di colonna
             if(col < col_control){
-                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
+                if(isTileNotOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
                     movePiece(piece, row, col);
                     return true;
                 }
                 return false;
             }
+            //vado a sinistra di colonna
             else if(col_control < col){
-                if(isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
+                if(isTileNotOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
                     movePiece(piece, row, col);
                     return true;
                 }
@@ -202,22 +203,21 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
     //Vado verso il basso
     else if(row > piece.row){
         for (int i = piece.row; i <= row; i++) {
-            //control right column
+            //left column check
             if(col_control > col){
-                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
+                if(isTileNotOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
                     movePiece(piece, row, col);
                     return true;
                 }
                 return false;
             }
             else if(col_control < col){
-                if(isTileOccupied(i, ++col_control)) {
-                    if(isTargetAvailable(piece, target, row, col) && isTargetAvailable(piece, target, row, col)){
-                        movePiece(piece, row, col);
-                        return true;
-                    }
-                    return false;
+                //right column check
+                if(isTileNotOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
+                    movePiece(piece, row, col);
+                    return true;
                 }
+                return false;
             }
         }
     }
