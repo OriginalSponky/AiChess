@@ -1,14 +1,15 @@
 // Le tue classi Player, Game, Piece, ecc. andrebbero qui...
 
 void main() {
-    Player player1 = new Player("test1");
-    Player player2 = new Player("test2");
+    Player player1 = new RealPlayer("test1",true);
+    Player player2 = new RealPlayer("test2",false);
     Game game = new Game(true, player1, player2);
     printBoard(game);
     // System.out.println(game.board[6][2].charPiece());
     // Piece prova = game.board[6][2]; // Questo ora verrebbe gestito da "c2"
-    rookTest(game, player1);
+    //rookTest(game, player1);
     // bishopTest(game, player1);
+    queenTest(game, player1);
 }
 void bishopTest(Game game, Player player) {
     // Sblocco l'alfiere dal pedone
@@ -62,6 +63,20 @@ void rookTest(Game game, Player player) {
     printBoard(game);
 }
 
+void queenTest(Game game, Player player) {
+        // not work good nega in diagonals
+    System.out.println(game.move("d2", "d4", player)); // Mossa nulla
+    printBoard(game);
+    System.out.println(game.move("d1", "d3", player)); // Mossa nulla
+    printBoard(game);
+    System.out.println(game.move("d3", "d1", player)); // Mossa nulla
+    printBoard(game);
+//    System.out.println(game.move("d3", "f3", player)); // Mossa nulla
+//    printBoard(game);
+//    System.out.println(game.move("f3", "g4", player)); // Mossa nulla
+//    printBoard(game);
+}
+
 public void printBoard(Game game) {
     String row = "";
     for (int i = 0; i < 8; i++) {
@@ -76,6 +91,6 @@ public void printBoard(Game game) {
         System.out.println(row);
         row = "";
     }
-    System.out.println(" |A|B|C|D|E|F|G|H");
+    System.out.println(" |A|B|CD|E|FG|H");
     System.out.println();
 }

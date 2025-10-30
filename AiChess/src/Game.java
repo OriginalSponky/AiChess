@@ -59,7 +59,12 @@ public class Game {
                 else return false;
             }
             case knight -> {}
-            case queen -> {}
+            case queen -> {
+                int col_control = piece.column;
+                Piece target = board[row][col];
+                if(row == piece.row || col == piece.column) return rookMove(piece, row, col, player);
+                else return bishopMove(piece, row, col, col_control, target);
+            }
             case king -> { // ARROCCO da mettere
                 if(!isCheck(player)){
 
