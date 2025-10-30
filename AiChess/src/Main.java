@@ -70,6 +70,15 @@ void queenTest(Game game, Player player) {
     System.out.println(game.move("d1", "d3", player)); // Muove la regina e lo posiziona dietro il pedone
     printBoard(game);
 
+    System.out.println(game.move("d3", "c4", player)); //Regina in alto a sinistra
+    printBoard(game);
+    System.out.println(game.move("c4", "d5", player)); //Regina in alto a destra
+    printBoard(game);
+    System.out.println(game.move("d5", "e4", player)); //Regina in basso a destra
+    printBoard(game);
+    System.out.println(game.move("e4", "d3", player)); //Regina in basso a sinistra
+    printBoard(game);
+
 }
 
 public void printBoard(Game game) {

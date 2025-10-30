@@ -179,7 +179,7 @@ private boolean rookMove(Piece piece, int row, int col, Player player){
 private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece target){
     //Vado verso l'alto
     if(row < piece.row){
-        for (int i = piece.row; i >= row; i--) {
+        for (int i = piece.row - 1; i >= row; i--) {
             //vado a sinistra di colonna
             if(col < col_control){
                 if(!isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
@@ -190,7 +190,9 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
             }
             //vado a destra di colonna
             else if(col_control < col){
-                if(isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
+                System.out.printf("%d, %d\n",i, col_control+1);
+                System.out.println("Va bene? : " + (!isTileOccupied(i, col_control + 1)));
+                if(!isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
                     movePiece(piece, row, col);
                     return true;
                 }
@@ -202,10 +204,10 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
     }
     //Vado verso il basso
     else if(row > piece.row){
-        for (int i = piece.row; i <= row; i++) {
+        for (int i = piece.row + 1; i <= row; i++) {
             //left column check
             if(col_control > col){
-                if(isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
+                if(!isTileOccupied(i, --col_control) && isTargetAvailable(piece, target, row, col)){
                     movePiece(piece, row, col);
                     return true;
                 }
@@ -213,7 +215,7 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
             }
             else if(col_control < col){
                 //right column check
-                if(isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
+                if(!isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
                     movePiece(piece, row, col);
                     return true;
                 }
