@@ -190,8 +190,6 @@ private boolean bishopMove(Piece piece, int row, int col, int col_control, Piece
             }
             //vado a destra di colonna
             else if(col_control < col){
-                System.out.printf("%d, %d\n",i, col_control+1);
-                System.out.println("Va bene? : " + (!isTileOccupied(i, col_control + 1)));
                 if(!isTileOccupied(i, ++col_control) && isTargetAvailable(piece, target, row, col)) {
                     movePiece(piece, row, col);
                     return true;
