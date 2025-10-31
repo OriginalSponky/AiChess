@@ -104,17 +104,20 @@ public void createGame(){
     System.out.println("select the mode with numbers");
     System.out.println("1. one vs one");
     System.out.println("2. you vs AI");
-    System.out.println("3. AI advice");
+    System.out.println("3. AI vs AI");
+    System.out.println("4. AI advice");
     Scanner scanner = new Scanner(System.in);  // Create a Scanner object
     String choose =scanner.nextLine();
     System.out.println("enter your choice");
-    while(choose.equals("1")||choose.equals("2")||choose.equals("3")){
+    while(choose.equals("1")||choose.equals("2")||choose.equals("3")||choose.equals("4")){
         choose =scanner.nextLine();
-        System.out.println("enter your correct choice pls (1,2,3)");
+        System.out.println("enter your correct choice pls (1,2,3,4)");
     }
     switch(choose){
         case "1"->{}
         case "2"->{}
         case "3"->{}
+        case "4"->{}
+        default -> System.out.println("Invalid choice");
     }
 }
