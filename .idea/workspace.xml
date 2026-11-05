@@ -4,21 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f41df631-1462-43f0-9500-ca22a2d3c5cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AiChess/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/AiChess/src/Main.java" afterDir="false" />
+    <list default="true" id="8edfe6ac-946c-4e3a-aeb0-8d83dbb46246" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/AiChess.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/AI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/Piece.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/RealPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AiChess/src/Type.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="34fJr6GbK4xC0TMRn2rVlUQo3Fv" />
+  <component name="ProjectId" id="34SzRgIj4lkiBcnR9S8Ng2Ea7M0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,23 +56,23 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Davide/Documents/GitHub/AiChess",
+    "last_opened_file_path": "C:/Users/anspo/Documents/GitHub/AiChess",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/anspo/IdeaProjects/AiChess/src/Main.java",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
+    "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -69,29 +95,67 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f41df631-1462-43f0-9500-ca22a2d3c5cb" name="Changes" comment="" />
-      <created>1761598888535</created>
+      <changelist id="8edfe6ac-946c-4e3a-aeb0-8d83dbb46246" name="Changes" comment="" />
+      <created>1761221755987</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1761598888535</updated>
-      <workItem from="1761598889775" duration="789000" />
-      <workItem from="1761600490626" duration="34000" />
-      <workItem from="1761771095798" duration="483000" />
-      <workItem from="1761771657229" duration="165000" />
+      <updated>1761221755987</updated>
+      <workItem from="1761221757755" duration="4834000" />
+      <workItem from="1761386040698" duration="6993000" />
+      <workItem from="1761424260699" duration="13637000" />
+      <workItem from="1761564566427" duration="701000" />
+      <workItem from="1761598057038" duration="2430000" />
+      <workItem from="1761768297620" duration="3004000" />
+      <workItem from="1761844851431" duration="2261000" />
+      <workItem from="1761865425017" duration="1649000" />
+      <workItem from="1761928181682" duration="2359000" />
+      <workItem from="1762554339764" duration="56000" />
+      <workItem from="1762873004656" duration="3000" />
+      <workItem from="1770386126059" duration="163000" />
+      <workItem from="1781705069759" duration="6000" />
+      <workItem from="1787584779685" duration="1000" />
+      <workItem from="1789463204779" duration="982000" />
+      <workItem from="1789566259219" duration="6000" />
+      <workItem from="1793917617708" duration="336000" />
     </task>
+    <task id="LOCAL-00001" summary=";l;l">
+      <option name="closed" value="true" />
+      <created>1761599651882</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761599651882</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AiChess$Main.ic" NAME="Main Coverage Results" MODIFIED="1761771681704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=";l;l" />
+    <option name="LAST_COMMIT_MESSAGE" value=";l;l" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

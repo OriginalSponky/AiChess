@@ -10,7 +10,6 @@ public class Game {
         initializeBoard(starter);
     }
     public boolean move(String piece_position, String pos,Player player) {
-
         int[] array = convertToPosition(piece_position);
         Piece piece =  board[array[0]][array[1]];
         array = convertToPosition(pos);
