@@ -14,9 +14,7 @@ public class Piece {
         this.row = row;
         this.type = type;
         this.team = team;
-        //this.alive = true;
-        if (type == Type.pawn)
-            isTheFirstMove = true;
+        this.isTheFirstMove = true; // Utile per Pedoni, Re e Torri (arrocco)
     }
 
     public boolean isTheFirstMove() {

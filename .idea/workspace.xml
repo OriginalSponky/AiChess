@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edfe6ac-946c-4e3a-aeb0-8d83dbb46246" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/AiChess.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/AI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/Piece.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/RealPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AiChess/src/Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +30,65 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000000103511917" />
+      <entry key="S2" value="1.0225257950835354" />
+      <entry key="S5" value="1.3163865495421319" />
+      <entry key="S10" value="1.788323515761621" />
+      <entry key="S30" value="2.463420180709659" />
+      <entry key="S60" value="2.7112748696028945" />
+      <entry key="M2" value="2.9776233978347544" />
+      <entry key="M5" value="6.951045243448438" />
+      <entry key="M10" value="18.052006776001857" />
+      <entry key="M15" value="27.124938213916078" />
+      <entry key="M30" value="42.405090044319564" />
+      <entry key="H1" value="53.811929063269105" />
+      <entry key="H2" value="60.85305041422061" />
+      <entry key="H4" value="64.77652268388277" />
+      <entry key="D1" value="68.27415865352893" />
+      <entry key="W1" value="68.89575638030232" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="8.574963123862332E-26" />
+      <entry key="MS500" value="9.697202219434091E-6" />
+      <entry key="S2" value="0.05580352239318292" />
+      <entry key="S5" value="0.31525693230788854" />
+      <entry key="S10" value="0.5614774548527202" />
+      <entry key="S30" value="0.8249813513748018" />
+      <entry key="S60" value="0.9088329167740332" />
+      <entry key="M2" value="1.0161336371291783" />
+      <entry key="M5" value="2.2883996921540364" />
+      <entry key="M10" value="5.123666306183894" />
+      <entry key="M15" value="7.237660633381367" />
+      <entry key="M30" value="10.589616138084377" />
+      <entry key="H1" value="12.967094727224572" />
+      <entry key="H2" value="14.390575594402" />
+      <entry key="H4" value="15.17049283736471" />
+      <entry key="D1" value="15.858164440027688" />
+      <entry key="W1" value="15.979648099827177" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="8.512839760439479E-5" />
+      <entry key="MS500" value="0.1534701733408753" />
+      <entry key="S2" value="0.6824395196707802" />
+      <entry key="S5" value="1.383089749403391" />
+      <entry key="S10" value="2.1768083051652662" />
+      <entry key="S30" value="3.21075160201051" />
+      <entry key="S60" value="3.577843775395725" />
+      <entry key="M2" value="3.97047420609562" />
+      <entry key="M5" value="9.21802247291366" />
+      <entry key="M10" value="23.148461745473668" />
+      <entry key="M15" value="34.33528985515695" />
+      <entry key="M30" value="52.973152239495064" />
+      <entry key="H1" value="66.76523533839837" />
+      <entry key="H2" value="75.23579066978061" />
+      <entry key="H4" value="79.9428338774646" />
+      <entry key="D1" value="84.13158676360543" />
+      <entry key="W1" value="84.87529828779172" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -56,6 +104,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
@@ -95,8 +144,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+        <option value="bundled-jdk-30f59d01ecdd-ac68fc9d2b05-intellij.indexing.shared.core-IU-263.7307.200" />
       </set>
     </attachedChunks>
   </component>

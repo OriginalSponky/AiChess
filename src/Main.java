@@ -2,16 +2,16 @@ import java.util.Scanner;
 
 // Le tue classi Player, Game, Piece, ecc. andrebbero qui...
 public class Main {
-    void main() {
-        Player player1 = new RealPlayer("test1", true);
-        Player player2 = new RealPlayer("test2", false);
+    public void main(String[] str) {
+        AI AI = new AI("test1", true);
+        RealPlayer player = new RealPlayer("test2", false);
         Game game = new Game(true, player1, player2);
         printBoard(game);
         // System.out.println(game.board[6][2].charPiece());
         // Piece prova = game.board[6][2]; // Questo ora verrebbe gestito da "c2"
         //rookTest(game, player1);
-//    bishopTest(game, player1);
-        queenTest(game, player1);
+        //bishopTest(game, player1);
+        //queenTest(game, player1);
     }
 
     void bishopTest(Game game, Player player) {
@@ -90,9 +90,9 @@ public class Main {
             row += "" + (8 - i) + " ";
             for (int j = 0; j < 8; j++) {
                 if (game.board[i][j] == null)
-                    row += '䷀'; // Carattere spazio vuoto
+                    row += " ䷀"; // Carattere spazio vuoto
                 else
-                    row += game.board[i][j].charPiece() + "";
+                    row += "|"+ game.board[i][j].charPiece();
             }
 
             System.out.println(row);
