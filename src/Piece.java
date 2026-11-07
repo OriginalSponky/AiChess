@@ -20,6 +20,11 @@ public class Piece {
     public boolean isTheFirstMove() {
         return isTheFirstMove;
     }
+
+    public void setFirstMove(boolean state) {
+        this.isTheFirstMove = state;
+    }
+
     public void doneFirstmove(){
         isTheFirstMove = false;
     }

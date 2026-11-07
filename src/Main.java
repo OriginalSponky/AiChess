@@ -5,14 +5,86 @@ public class Main {
     public void main(String[] str) {
         AI AI = new AI("test1", true);
         RealPlayer player = new RealPlayer("test2", false);
-        Game game = new Game(true, player1, player2);
-        printBoard(game);
+        Game game = new Game(true, AI, player);
+        //printBoard(game);
         // System.out.println(game.board[6][2].charPiece());
         // Piece prova = game.board[6][2]; // Questo ora verrebbe gestito da "c2"
         //rookTest(game, player1);
         //bishopTest(game, player1);
         //queenTest(game, player1);
+        playVsAI();
     }
+
+    public void playVsAI() {
+        Scanner scanner = new Scanner(System.in);
+
+        // Tu sei il Bianco (true), l'AI è il Nero (false)
+        RealPlayer human = new RealPlayer("Umano", false);
+        AI ai = new AI("Computer", true);
+
+        // Creiamo la partita. L'AI gioca come secondo (starter=false non si riferisce all'array ma a chi inizia, il Bianco inizia sempre)
+        Game game = new Game(true, ai, human);
+
+        boolean isHumanTurn = false; // Il Bianco inizia per primo
+
+        System.out.println("=== PARTITA INIZIATA ===");
+        System.out.println("Tu sei il Bianco (pezzi in basso). L'AI è il Nero (pezzi in alto).");
+        System.out.println("Inserisci le mosse nel formato: partenza destinazione (es. e2 e4)");
+
+        while (true) {
+            printBoard(game);
+
+            if (isHumanTurn) {
+                System.out.println("Tuo turno (Bianco). Inserisci la mossa: ");
+                String input = scanner.nextLine().trim().toLowerCase();
+
+                String[] parts = input.split(" ");
+                if (parts.length != 2) {
+                    System.out.println("Formato non valido! Riprova con: e2 e4");
+                    continue;
+                }
+
+                // Usa il metodo move per umani, che contiene tutti i controlli (scacco, arrocco, ecc.)
+                boolean success = game.move(parts[0], parts[1], human);
+
+                if (!success) {
+                    System.out.println("Mossa illegale o Re sotto scacco! Riprova.");
+                    continue;
+                }
+            } else {
+                System.out.println("L'AI sta pensando...");
+
+                // Cerca la mossa migliore guardando 3 mosse nel futuro (depth = 3)
+                // Puoi alzare a 4 se vedi che risponde troppo in fretta e vuoi farla giocare meglio!
+                Move aiMove = ai.getBestMove(game, 3);
+
+                // Se getBestMove restituisce null, l'AI non ha mosse legali.
+                if (aiMove == null) {
+                    if (game.isCheck(false)) {
+                        System.out.println("SCACCO MATTO! Hai vinto!");
+                    } else {
+                        System.out.println("STALLO! La partita finisce in parità.");
+                    }
+                    break;
+                }
+
+                // Esegui la mossa dell'AI sulla scacchiera
+                game.makeMove(aiMove);
+
+                // Convertiamo le coordinate in formato leggibile (es. 1,4 diventa e7)
+                String startStr = "" + (char) ('a' + aiMove.startCol) + (8 - aiMove.startRow);
+                String endStr = "" + (char) ('a' + aiMove.endCol) + (8 - aiMove.endRow);
+
+                System.out.println("L'AI ha giocato: " + startStr + " " + endStr);
+            }
+
+            // Cambia turno
+            isHumanTurn = !isHumanTurn;
+        }
+
+        scanner.close();
+    }
+
 
     void bishopTest(Game game, Player player) {
         // Sblocco l'alfiere dal pedone
@@ -98,7 +170,7 @@ public class Main {
             System.out.println(row);
             row = "";
         }
-        System.out.println(" |A|B|CD|E|FG|H");
+        System.out.println("   A  B C  D  E F  G  H");
         System.out.println();
     }
 

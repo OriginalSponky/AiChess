@@ -224,6 +224,28 @@ public class Game {
         return false;
     }
 
+    // Esegue la mossa per l'AI
+    public void makeMove(Move move) {
+        board[move.startRow][move.startCol] = null;
+        board[move.endRow][move.endCol] = move.movedPiece;
+        move.movedPiece.row = move.endRow;
+        move.movedPiece.column = move.endCol;
+        move.movedPiece.doneFirstmove();
+
+        // (In futuro qui gestiremo anche la promozione del pedone per l'AI)
+    }
+
+    // Annulla la mossa per l'AI (FONDAMENTALE)
+    public void undoMove(Move move) {
+        board[move.startRow][move.startCol] = move.movedPiece;
+        board[move.endRow][move.endCol] = move.capturedPiece; // Ripristina il pezzo mangiato (o null)
+        move.movedPiece.row = move.startRow;
+        move.movedPiece.column = move.startCol;
+
+        // Ripristina lo stato della prima mossa
+        move.movedPiece.setFirstMove(move.wasFirstMove);
+    }
+
     // Mantenuto per retrocompatibilità col tuo codice
     public boolean isCheck(Player player) {
         return isCheck(player.starter);
