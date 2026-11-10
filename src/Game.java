@@ -98,6 +98,37 @@ public class Game {
             case king -> absRow <= 1 && absCol <= 1;
         };
     }
+    public boolean canCastle(Piece king, int targetRow, int targetCol) {
+        if (king.type != Type.king || !king.isTheFirstMove() || isCheck(king.team)) return false;
+        if (king.row != targetRow || Math.abs(targetCol - king.column) != 2) return false;
+
+        int rookCol = (targetCol > king.column) ? 7 : 0;
+        Piece rook = board[king.row][rookCol];
+
+        if (rook == null || rook.type != Type.rook || rook.team != king.team || !rook.isTheFirstMove()) return false;
+        if (!isPathClear(king.row, king.column, king.row, rookCol)) return false;
+
+        int step = (targetCol > king.column) ? 1 : -1;
+        int startCol = king.column;
+        boolean valid = true;
+
+        // Simula il passaggio del Re per vedere se attraversa uno scacco
+        for (int col = startCol + step; col != targetCol + step; col += step) {
+            board[king.row][king.column] = null;
+            board[king.row][col] = king;
+            king.column = col;
+
+            if (isCheck(king.team)) valid = false;
+
+            board[king.row][col] = null;
+        }
+
+        // Rimette il Re a posto
+        board[king.row][startCol] = king;
+        king.column = startCol;
+
+        return valid;
+    }
 
     private boolean isValidPawnMove(Piece piece, int targetRow, int targetCol, int rowDiff, int absCol) {
         // Determina la direzione in base a chi è stato posizionato in basso (riga 6) o in alto (riga 1)
@@ -124,6 +155,7 @@ public class Game {
 
         return false;
     }
+
 
     // Controlla che tutte le caselle intermedie (esclusa la destinazione) siano vuote
     private boolean isPathClear(int startRow, int startCol, int targetRow, int targetCol) {
@@ -232,18 +264,50 @@ public class Game {
         move.movedPiece.column = move.endCol;
         move.movedPiece.doneFirstmove();
 
-        // (In futuro qui gestiremo anche la promozione del pedone per l'AI)
+        // Trasforma il pedone nel pezzo SCELTO dall'AI
+        if (move.promotionType != null) {
+            move.movedPiece.type = move.promotionType;
+        }
+
+        // Se è un arrocco, sposta anche la Torre
+        if (move.isCastling) {
+            int rookStartCol = (move.endCol > move.startCol) ? 7 : 0;
+            int rookEndCol = (move.endCol > move.startCol) ? move.endCol - 1 : move.endCol + 1;
+            Piece rook = board[move.startRow][rookStartCol];
+            if (rook != null) {
+                board[move.startRow][rookStartCol] = null;
+                board[move.startRow][rookEndCol] = rook;
+                rook.column = rookEndCol;
+                rook.doneFirstmove();
+            }
+        }
     }
 
-    // Annulla la mossa per l'AI (FONDAMENTALE)
+    // Sostituisci il vecchio undoMove con questo
     public void undoMove(Move move) {
         board[move.startRow][move.startCol] = move.movedPiece;
-        board[move.endRow][move.endCol] = move.capturedPiece; // Ripristina il pezzo mangiato (o null)
+        board[move.endRow][move.endCol] = move.capturedPiece;
         move.movedPiece.row = move.startRow;
         move.movedPiece.column = move.startCol;
-
-        // Ripristina lo stato della prima mossa
         move.movedPiece.setFirstMove(move.wasFirstMove);
+
+        // Se era stato promosso, torna ad essere un umile pedone
+        if (move.promotionType != null) {
+            move.movedPiece.type = Type.pawn;
+        }
+
+        // Se era un arrocco, rimetti la Torre al suo posto originale
+        if (move.isCastling) {
+            int rookStartCol = (move.endCol > move.startCol) ? 7 : 0;
+            int rookEndCol = (move.endCol > move.startCol) ? move.endCol - 1 : move.endCol + 1;
+            Piece rook = board[move.startRow][rookEndCol];
+            if (rook != null) {
+                board[move.startRow][rookEndCol] = null;
+                board[move.startRow][rookStartCol] = rook;
+                rook.column = rookStartCol;
+                rook.setFirstMove(true);
+            }
+        }
     }
 
     // Mantenuto per retrocompatibilità col tuo codice

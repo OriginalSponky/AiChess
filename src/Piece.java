@@ -61,10 +61,10 @@ public class Piece {
                 case rook -> {
                     return "♖";
                 }
-                case knight -> {
+                case bishop -> {
                     return "♗";
                 }
-                case bishop -> {
+                case knight -> {
                     return "♘";
                 }
                 case pawn -> {

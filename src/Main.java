@@ -12,39 +12,41 @@ public class Main {
         //rookTest(game, player1);
         //bishopTest(game, player1);
         //queenTest(game, player1);
-        playVsAI();
+        //playVsAI();
+        playAIVsAI();
     }
 
     public void playVsAI() {
         Scanner scanner = new Scanner(System.in);
 
-        // Tu sei il Bianco (true), l'AI è il Nero (false)
-        RealPlayer human = new RealPlayer("Umano", false);
+        // L'AI è il Bianco (true), tu sei il Nero (false)
         AI ai = new AI("Computer", true);
+        RealPlayer human = new RealPlayer("Umano", false);
 
-        // Creiamo la partita. L'AI gioca come secondo (starter=false non si riferisce all'array ma a chi inizia, il Bianco inizia sempre)
+        // Passiamo l'AI (Bianco) e l'Umano (Nero) alla classe Game
         Game game = new Game(true, ai, human);
 
-        boolean isHumanTurn = false; // Il Bianco inizia per primo
+        // Inizia il Bianco (cioè l'AI)
+        boolean isHumanTurn = false;
 
         System.out.println("=== PARTITA INIZIATA ===");
-        System.out.println("Tu sei il Bianco (pezzi in basso). L'AI è il Nero (pezzi in alto).");
-        System.out.println("Inserisci le mosse nel formato: partenza destinazione (es. e2 e4)");
+        System.out.println("L'AI è il Bianco (in basso) e inizia per prima.");
+        System.out.println("Tu sei il Nero (in alto).");
+        System.out.println("Inserisci le mosse nel formato: partenza destinazione (es. e7 e5)");
 
         while (true) {
             printBoard(game);
 
             if (isHumanTurn) {
-                System.out.println("Tuo turno (Bianco). Inserisci la mossa: ");
+                System.out.println("Tuo turno (Nero). Inserisci la mossa: ");
                 String input = scanner.nextLine().trim().toLowerCase();
 
                 String[] parts = input.split(" ");
                 if (parts.length != 2) {
-                    System.out.println("Formato non valido! Riprova con: e2 e4");
+                    System.out.println("Formato non valido! Riprova con: e7 e5");
                     continue;
                 }
 
-                // Usa il metodo move per umani, che contiene tutti i controlli (scacco, arrocco, ecc.)
                 boolean success = game.move(parts[0], parts[1], human);
 
                 if (!success) {
@@ -54,13 +56,10 @@ public class Main {
             } else {
                 System.out.println("L'AI sta pensando...");
 
-                // Cerca la mossa migliore guardando 3 mosse nel futuro (depth = 3)
-                // Puoi alzare a 4 se vedi che risponde troppo in fretta e vuoi farla giocare meglio!
-                Move aiMove = ai.getBestMove(game, 3);
+                Move aiMove = ai.getBestMove(game, 3); // Cerca 3 mosse nel futuro
 
-                // Se getBestMove restituisce null, l'AI non ha mosse legali.
                 if (aiMove == null) {
-                    if (game.isCheck(false)) {
+                    if (game.isCheck(true)) {
                         System.out.println("SCACCO MATTO! Hai vinto!");
                     } else {
                         System.out.println("STALLO! La partita finisce in parità.");
@@ -68,92 +67,65 @@ public class Main {
                     break;
                 }
 
-                // Esegui la mossa dell'AI sulla scacchiera
                 game.makeMove(aiMove);
 
-                // Convertiamo le coordinate in formato leggibile (es. 1,4 diventa e7)
                 String startStr = "" + (char) ('a' + aiMove.startCol) + (8 - aiMove.startRow);
                 String endStr = "" + (char) ('a' + aiMove.endCol) + (8 - aiMove.endRow);
-
                 System.out.println("L'AI ha giocato: " + startStr + " " + endStr);
             }
 
             // Cambia turno
             isHumanTurn = !isHumanTurn;
         }
-
         scanner.close();
     }
+    public void playAIVsAI() {
+        AI aiWhite = new AI("AI Bianca", true);
+        AI aiBlack = new AI("AI Nera", false);
 
+        // Il RealPlayer non serve in questa modalità, possiamo passare null
+        Game game = new Game(true, aiWhite, null);
 
-    void bishopTest(Game game, Player player) {
-        // Sblocco l'alfiere dal pedone
-        System.out.println(game.move("b2", "b4", player)); //Muove il pedone di 2 caselle
-        printBoard(game);
+        boolean isWhiteTurn = true;
 
-        // Muovo l'alfiere
-        System.out.println(game.move("c1", "b2", player)); //Alfiere va in alto a sinistra
-        printBoard(game);
-        System.out.println(game.move("b2", "g7", player));
-        printBoard(game);
-        System.out.println(game.move("g7", "f8", player));
-        printBoard(game);
-        System.out.println(game.move("f8", "g7", player));
-        printBoard(game);
-        System.out.println(game.move("g7", "h8", player));
-        printBoard(game);
-        System.out.println(game.move("h8", "g7", player));
-        printBoard(game);
-    }
+        System.out.println("=== BATTAGLIA AI vs AI INIZIATA ===");
 
-    void rookTest(Game game, Player player) {
-        // testa di mangiare verso destra e verso giu e verso sinitra
-        System.out.println(game.move("a2", "a4", player));
-        printBoard(game);
-        System.out.println(game.move("a4", "a5", player));
-        printBoard(game);
-        System.out.println(game.move("a1", "a4", player));
-        printBoard(game);
-        System.out.println(game.move("a4", "d4", player));
-        printBoard(game);
-        System.out.println(game.move("d4", "d7", player));
-        printBoard(game);
-        System.out.println(game.move("d7", "d8", player));
-        printBoard(game);
-        System.out.println(game.move("d8", "c8", player));
-        printBoard(game);
-        System.out.println(game.move("c8", "c7", player));
-        printBoard(game);
-        System.out.println(game.move("c7", "d7", player));
-        printBoard(game);
-        System.out.println(game.move("d7", "c7", player));
-        printBoard(game);
-        System.out.println(game.move("c7", "b7", player));
-        printBoard(game);
-        System.out.println(game.move("b7", "a7", player));
-        printBoard(game);
-        System.out.println(game.move("a7", "a5", player));
-        printBoard(game);
-        System.out.println(game.move("a5", "a5", player)); // Mossa nulla
-        printBoard(game);
-    }
+        while (true) {
+            printBoard(game);
 
-    void queenTest(Game game, Player player) {
-        // not work good nega in diagonals
-        System.out.println(game.move("d2", "d4", player)); // Muove il pedone di 2 avanti
-        printBoard(game);
-        System.out.println(game.move("d1", "d3", player)); // Muove la regina e lo posiziona dietro il pedone
-        printBoard(game);
+            AI currentAI = isWhiteTurn ? aiWhite : aiBlack;
+            System.out.println("Sta pensando " + currentAI.name + "...");
 
-        System.out.println(game.move("d3", "c4", player)); //Regina in alto a sinistra
-        printBoard(game);
-        System.out.println(game.move("c4", "d5", player)); //Regina in alto a destra
-        printBoard(game);
-        System.out.println(game.move("d5", "e4", player)); //Regina in basso a destra
-        printBoard(game);
-        System.out.println(game.move("e4", "d3", player)); //Regina in basso a sinistra
-        printBoard(game);
+            // Profondità 3 è istantanea, puoi provare 4 per vederle ragionare meglio
+            Move aiMove = currentAI.getBestMove(game, 4);
 
+            if (aiMove == null) {
+                if (game.isCheck(currentAI.starter)) {
+                    System.out.println("SCACCO MATTO! Vince: " + (isWhiteTurn ? "AI Nera" : "AI Bianca"));
+                } else {
+                    System.out.println("STALLO! La partita finisce in parità.");
+                }
+                break;
+            }
+
+            // Esegue la mossa vera e propria (non una simulazione) usando il metodo testuale per avere tutti i controlli finali
+            String startPos = "" + (char)('a' + aiMove.startCol) + (8 - aiMove.startRow);
+            String endPos = "" + (char)('a' + aiMove.endCol) + (8 - aiMove.endRow);
+
+            // Usiamo il move testuale del Game per eseguire la mossa finale confermata
+            game.move(startPos, endPos, currentAI);
+
+            System.out.println(currentAI.name + " ha giocato: " + startPos + " " + endPos);
+
+            // Pausa di 1 secondo (1000 millisecondi) per farti leggere la mossa
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            isWhiteTurn = !isWhiteTurn;
+        }
     }
 
     public void printBoard(Game game) {
